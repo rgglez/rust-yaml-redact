@@ -1,0 +1,22 @@
+[package]
+name = "rust-yaml-redact"
+version = "0.1.0"
+edition = "2021"
+description = "Redact sensitive values in YAML files (stdin/stdout or files)."
+license = "GPL-3.0"
+repository = "https://github.com/rgglez/rust-yaml-redact"
+readme = "README.md"
+
+[[bin]]
+name = "redactyaml"
+path = "src/main.rs"
+
+[dependencies]
+clap = { version = "4.5", features = ["derive"] }
+saphyr = "0.0.12"
+# Use the exact major version of ordered-float that saphyr depends on
+# so constructing ScalarOwned::FloatingPoint does not pull a conflicting copy.
+ordered-float = "5"
+regex = "1"
+
+[dev-dependencies]
